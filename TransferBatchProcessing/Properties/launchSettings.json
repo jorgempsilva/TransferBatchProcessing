@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TransferBatchProcessing": {
+      "commandName": "Project"
+      //"commandLineArgs": "C:\\\\Users\\jorge\\Downloads\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\sample.transfers.csv"
+    }
+  }
+}
