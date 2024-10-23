@@ -31,7 +31,7 @@ A11,10.00
 
 # How to Build the Project
 To build and run the project, follow these steps:
-* Extract the ZIP file containing the source code.
+* Clone the project.
 * Navigate to the project folder using the terminal.
 
 Run the following command to restore dependencies and build the project:
