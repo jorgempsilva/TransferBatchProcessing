@@ -76,8 +76,8 @@ namespace TransferBatchProcessingTests
             });
 
             // Assert
-            output.Should().Contain("A10,30,00");
-            output.Should().Contain("A11,40,00");
+            output.Should().Contain("A10,60,00");
+            output.Should().Contain("A11,0,00");
             RemoveFileIfExists(filePath);
         }
 
@@ -108,12 +108,6 @@ namespace TransferBatchProcessingTests
             RemoveFileIfExists(filePath);
         }
 
-        private static void RemoveFileIfExists(string filePath)
-        {
-            if (File.Exists(filePath))
-                File.Delete(filePath);
-        }
-
         private static string CaptureConsoleOutput(Action action)
         {
             var originalConsoleOut = Console.Out;
@@ -128,6 +122,12 @@ namespace TransferBatchProcessingTests
             {
                 Console.SetOut(originalConsoleOut);
             }
+        }
+
+        private static void RemoveFileIfExists(string filePath)
+        {
+            if (File.Exists(filePath))
+                File.Delete(filePath);
         }
     }
 }

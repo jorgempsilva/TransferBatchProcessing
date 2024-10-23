@@ -79,17 +79,17 @@
 
         private static void CalculateCommissions(IEnumerable<IGrouping<string, Transfer>> accounts)
         {
+            // Find the transfer with the maximum value
+            var maxTransfer = accounts.SelectMany(group => group).Max(t => t.TotalTransferAmount);
+
             foreach (var accountGroup in accounts)
             {
                 var accountID = accountGroup.Key;
                 var accountTransfers = accountGroup.ToList();
 
-                // Find the transfer with the maximum value
-                var maxTransfer = accountTransfers.Max(t => t.TotalTransferAmount);
-
                 // Calculate the total commission (10% for all transfers except the highest one)
                 var totalCommission = accountTransfers
-                    .Where(t => t.TotalTransferAmount != maxTransfer || accountTransfers.Count == 1)
+                    .Where(t => t.TotalTransferAmount != maxTransfer)
                     .Sum(t => t.TotalTransferAmount * Commission);
 
                 Console.WriteLine($"{accountID},{totalCommission:0.00}");
